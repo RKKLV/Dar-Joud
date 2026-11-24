@@ -277,7 +277,7 @@ frameEl.innerHTML = `
         if (i >= full.length) {
           window.clearInterval(timer);
         }
-      }, 28);
+      }, 55);
     });
   }
 
