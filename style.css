@@ -678,3 +678,13 @@ body {
   height: auto;
   border-radius: 2px;
 }
+
+*,
+*::before,
+*::after,
+button,
+input,
+textarea,
+select {
+  font-family: "Aref Ruqaa", serif !important;
+}
