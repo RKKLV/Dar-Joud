@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>دار جود · خارج الزمن</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ضوء انتقال الغرف وشعاع الدار -->
+  <div id="light-veil" aria-hidden="true"></div>
+  <div id="room-beam" aria-hidden="true"></div>
+
+  <!-- شريط تنقل هادئ يظهر بعد دخول الدار -->
+  <header id="house-nav" class="house-nav is-hidden">
+   <button id="btn-home-door" class="nav-mark" type="button">دار جود</button>
+    <nav id="room-pills" class="room-pills" aria-label="غرف الدار"></nav>
+  </header>
+
+  <main id="house-stage">
+
+    <!-- 01 — باب الدار -->
+    <section id="room-01" class="room active">
+      <div class="door-frame-outer">
+        <div class="wooden-door" id="wooden-door">
+          <div class="door-inlay">
+            <span class="room-index">01 · باب الدار</span>
+            <p id="door-quote" class="manuscript-quote"></p>
+            <button id="btn-approach-door" class="btn-antique is-hidden">يلا يا دلوعتي</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — سجلّ الدخول -->
+    <section id="room-02" class="room">
+      <div class="parchment-sheet permit-card">
+        <span class="room-index dark-ink">02 · سجلّ الدخول</span>
+        <h2 class="antique-heading">تصريح دخول دار جود</h2>
+        <p class="manuscript-sub">سجّلي رمز العبور ليُختم تصريحكِ بختم الدار.</p>
+
+        <label for="passcode-field" class="field-label">الرمز السرّي</label>
+        <input id="passcode-field" type="password" inputmode="numeric" maxlength="12" placeholder="••••••••" autocomplete="off" />
+
+        <label for="word-field" class="field-label">كلمة لا تفارقكِ على لساني</label>
+        <input id="word-field" type="text" placeholder="همسي بالسرّ اللي ما يعرفه غيرك" autocomplete="off" />
+
+        <p id="permit-feedback" class="permit-feedback" role="status"></p>
+        <button id="btn-issue-permit" class="btn-antique">استخراج التصريح وفتح الباب</button>
+      </div>
+    </section>
+
+    <!-- 03 — معرض البدايات -->
+    <section id="room-03" class="room">
+      <div class="room-header">
+        <span class="room-index">03 · معرض البدايات</span>
+        <h2 class="antique-heading light-gold"> أثرٍ ما محته الأيام </h2>
+        <p class="manuscript-sub light-sub">اضغطي على إطار لتُفتح صفحته وحكايته.</p>
+      </div>
+
+      <div id="beginnings-gallery" class="gallery-grid"></div>
+
+      <article id="beginning-book" class="parchment-sheet book-viewer is-hidden">
+        <button id="close-book" class="btn-close-quiet" aria-label="إغلاق">✕</button>
+        <span id="book-tag" class="dusty-tag"></span>
+        <h3 id="book-title" class="antique-heading"></h3>
+        <div id="book-frame-visual" class="portrait-frame"></div>
+        <p id="book-story" class="manuscript-body"></p>
+      </article>
+
+      <div class="room-footer-nav">
+        <button class="btn-antique" data-go="room-04">إلى مقتنيات جود ←</button>
+      </div>
+    </section>
+
+    <!-- 04 — مقتنيات جود (20 ظرفًا داخل أدراج + أختام شمعية) -->
+    <section id="room-04" class="room">
+      <div class="room-header">
+        <span class="room-index">04 · مقتنيات جود</span>
+        <h2 class="antique-heading light-gold">عشرون ظرفًا في أدراج الدار</h2>
+        <p class="manuscript-sub light-sub">اسحبي الدرج أو المسيه ليخرج الظرف، ومرّري على الختم لكشف السرّ.</p>
+      </div>
+
+      <div id="drawers-cabinet" class="drawers-grid"></div>
+
+      <div id="drawer-modal" class="veil-modal is-hidden">
+        <div class="parchment-sheet letter-sheet">
+          <button id="close-drawer" class="btn-close-quiet" aria-label="إغلاق">✕</button>
+          <span id="drawer-num" class="dusty-tag"></span>
+          <h3 id="drawer-title" class="antique-heading"></h3>
+          <p id="drawer-body" class="manuscript-body"></p>
+          <div class="wax-zone">
+            <button id="wax-seal-btn" class="wax-seal" type="button" title="اكشفي السرّ خلف الختم">ختم</button>
+            <span id="wax-secret" class="wax-secret is-hidden"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-footer-nav">
+        <button class="btn-antique" data-go="room-05">إلى جناح صوتها ←</button>
+      </div>
+    </section>
+
+    <!-- 05 — جناح صوتها -->
+    <section id="room-05" class="room">
+      <div class="room-header">
+        <span class="room-index">05 · جناح صوتها</span>
+        <h2 class="antique-heading light-gold">غرف الهمس والتسجيلات</h2>
+        <p class="manuscript-sub light-sub">اختاري التسجيل الذي يوافق اللحظة في قلبكِ.</p>
+      </div>
+
+      <div id="voice-rooms-list" class="voice-grid"></div>
+
+      <div id="voice-deck" class="parchment-sheet voice-deck is-hidden">
+        <div class="voice-meta">
+          <span id="voice-occasion" class="dusty-tag"></span>
+          <h3 id="voice-title" class="antique-heading"></h3>
+          <p id="voice-note" class="manuscript-body"></p>
+        </div>
+        <div class="voice-controls">
+          <button id="btn-voice-toggle" class="btn-antique">تشغيل</button>
+          <button id="btn-voice-restart" class="btn-quiet">إعادة من البداية</button>
+          <input id="voice-seek" type="range" min="0" max="100" value="0" aria-label="موضع الصوت" />
+          <span id="voice-time" class="time-readout">00:00</span>
+        </div>
+        <audio id="voice-player" preload="metadata"></audio>
+      </div>
+
+      <div class="room-footer-nav">
+        <button class="btn-antique" data-go="room-06">إلى تفاصيل لا يعرفها سواي ←</button>
+      </div>
+    </section>
+
+    <!-- 06 — تفاصيل لا يعرفها سواي -->
+    <section id="room-06" class="room">
+      <div class="parchment-sheet quiz-card">
+        <span class="room-index dark-ink">06 · تفاصيل لا يعرفها سواي</span>
+        <h2 class="antique-heading">كل إجابة تكشف سطرًا مخفيًا</h2>
+        <p class="manuscript-sub">ما لا تنتبهين له أحيانًا، أحفظه في تفاصيل أيامي.</p>
+
+        <div id="secret-lines-revealed" class="revealed-scroll"></div>
+
+        <div id="quiz-stage" class="quiz-stage">
+          <p id="quiz-q-text" class="quiz-question"></p>
+          <div id="quiz-choices" class="quiz-choices"></div>
+          <p id="quiz-hint" class="permit-feedback"></p>
+        </div>
+
+        <div id="quiz-complete" class="quiz-complete is-hidden">
+          <p class="manuscript-body">اكتملت السطور المخفية في سجلّ التفاصيل.</p>
+          <button class="btn-antique" data-go="room-07">إلى جناح الأيام القادمة ←</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — جناح الأيام القادمة -->
+    <section id="room-07" class="room">
+      <div class="room-header">
+        <span class="room-index">07 · جناح الأيام القادمة</span>
+        <h2 class="antique-heading light-gold">عمرٍ تمنّيته وأنتي أوّله وآخره </h2>
+        <p class="manuscript-sub light-sub">ما أبي من العمر كثر السنين، أبي سنينٍ كلّها تمرّ وأنتي فيها</p>
+      </div>
+
+      <div id="future-wings" class="future-grid"></div>
+
+      <div class="room-footer-nav">
+        <button class="btn-antique" data-go="room-08">إلى الوثيقة الأخيرة ←</button>
+      </div>
+    </section>
+
+    <!-- 08 — الوثيقة الأخيرة -->
+    <section id="room-08" class="room">
+      <div class="parchment-sheet final-doc">
+        <div id="doc-seal-cover" class="doc-cover">
+          <span class="room-index dark-ink">08 · الوثيقة الأخيرة</span>
+          <h2 class="antique-heading">وثيقة محفوظة في آخر الدار</h2>
+          <p class="manuscript-sub">اُفطني الورقة ببطء لتقرئي آخر ما كُتب هنا.</p>
+          <button id="btn-unfold-doc" class="btn-antique">فتح الوثيقة</button>
+        </div>
+
+        <div id="doc-content" class="doc-content is-hidden">
+          <span class="room-index dark-ink">08 · الوثيقة الأخيرة</span>
+          <div id="final-doc-text" class="manuscript-body final-prose"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="data/joud-house-data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/rooms.js"></script>
+  <script src="js/house.js"></script>
+</body>
+</html>
